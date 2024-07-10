@@ -17,6 +17,9 @@ const PatientTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [sortOption, setSortOption] = useState("");
+  const handleDelete = (id) => {
+    setPatients(patients.filter(patient => patient.id !== id));
+  };
 
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
@@ -156,7 +159,8 @@ const PatientTable = () => {
                 {patient.nextAppointment}
               </td>
               <td className="py-2 px-4 text-center">
-                <button className="text-red-500 hover:text-red-700">
+                <button className="text-red-500 hover:text-red-700"                   onClick={() => handleDelete(patient.id)}
+>
                   <FaTrashAlt className="w-3 h-4" />
                 </button>
               </td>
