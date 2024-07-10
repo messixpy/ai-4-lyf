@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import SummaryBoxes from "./components/SummaryBoxes";
+import PatientTable from "./components/patientData";
+import Header from "./layout/Header";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex-col w-[100%] items-center justify-center">
+      <Header />
+
+      <div className="mx-8 mb-10 ">
+      <SummaryBoxes />
+      <PatientTable />
+      </div>
     </div>
   );
 }
