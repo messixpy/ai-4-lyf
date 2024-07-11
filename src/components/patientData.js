@@ -18,7 +18,7 @@ const PatientTable = () => {
   const [filterStatus, setFilterStatus] = useState("All");
   const [sortOption, setSortOption] = useState("");
   const handleDelete = (id) => {
-    setPatients(patients.filter(patient => patient.id !== id));
+    setPatients(patients.filter((patient) => patient.id !== id));
   };
 
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
@@ -106,7 +106,7 @@ const PatientTable = () => {
 
       <table className="min-w-full bg-white border border-gray-200">
         <tr className="text-md !justify-start !items-start !font-light">
-          <th className="py-2 px-2 gap-4 border-b font-light flex items-center justify-start">
+          <th className="py-5 lg:py-2 px-4 gap-4 border-b font-light flex items-center justify-start">
             <input type="checkbox" className="form-checkbox h-4 w-4" /> Name
           </th>
           <th className="py-2 px-4 text-start font-light border-b">Diseases</th>
@@ -122,7 +122,7 @@ const PatientTable = () => {
         <tbody>
           {filteredPatients.map((patient) => (
             <tr key={patient.id} className="border-b">
-              <td className="py-2 px-2 gap-2 text-md font-light flex items-center">
+              <td className="py-2 px-2 gap-4 text-md font-light flex items-center">
                 <input type="checkbox" className="form-checkbox h-4 w-4" />
                 <div className="flex items-center justify-center">
                   <img
@@ -159,8 +159,10 @@ const PatientTable = () => {
                 {patient.nextAppointment}
               </td>
               <td className="py-2 px-4 text-center">
-                <button className="text-red-500 hover:text-red-700"                   onClick={() => handleDelete(patient.id)}
->
+                <button
+                  className="text-red-500 hover:text-red-700"
+                  onClick={() => handleDelete(patient.id)}
+                >
                   <FaTrashAlt className="w-3 h-4" />
                 </button>
               </td>
@@ -168,8 +170,8 @@ const PatientTable = () => {
           ))}
         </tbody>
       </table>
-<Pagination totalPages={10} />
-</div>
+      <Pagination totalPages={10} />
+    </div>
   );
 };
 
